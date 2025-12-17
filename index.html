@@ -1,255 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Will Chen | Wind Turbine Design Portfolio</title>
-
+  <title>Will Chen | Professional Engineering Portfolio</title>
   <style>
-    /* CSS Styles from your template */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    /* Professional Styling */
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: #fafafa; color: #2d3436; line-height: 1.6; }
+    
+    nav { position: sticky; top: 0; background: #2d3436; padding: 1rem 10%; display: flex; justify-content: space-between; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    nav a { color: #dfe6e9; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
+    nav a:hover { color: #00cec9; }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f5f5;
-      color: #333;
-    }
+    header { height: 50vh; background: linear-gradient(135deg, #2d3436 0%, #000000 100%); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+    header h1 { font-size: 2.8rem; margin-bottom: 10px; }
+    header p { font-size: 1.1rem; color: #b2bec3; }
 
-    nav {
-      position: sticky;
-      top: 0;
-      background: linear-gradient(135deg, #2c3e50, #4ca1af);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
+    section { padding: 60px 10%; max-width: 1100px; margin: auto; }
+    h2 { font-size: 1.8rem; color: #0984e3; margin-bottom: 20px; border-left: 5px solid #00cec9; padding-left: 15px; }
+    h3 { font-size: 1.3rem; margin: 25px 0 10px; color: #2d3436; }
+    
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
+    .figure-container { background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; }
+    .figure-container img { max-width: 100%; border-radius: 4px; }
+    .caption { font-size: 0.85rem; color: #636e72; margin-top: 10px; font-style: italic; }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      position: relative;
-      padding: 0.3rem 0;
-      transition: all 0.3s ease;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 2px;
-      width: 100%;
-      background-color: #d4f5e9;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s ease;
-    }
-
-    nav a:hover {
-      transform: scale(1.05);
-      color: #d4f5e9;
-    }
-
-    nav a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-
-    header {
-      height: 60vh;
-      background: linear-gradient(135deg, #2c3e50, #4ca1af);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 3px solid white;
-      animation: typing 3s steps(30, end), blink 0.8s step-end infinite;
-      max-width: 90%;
-    }
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    header p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 2s ease-out forwards;
-      animation-delay: 2s;
-    }
-
-    .scroll-down {
-      margin-top: 40px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      animation: bounce 2s infinite;
-      transition: transform 0.3s;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
-    }
-
-    section {
-      padding: 80px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    section h2 {
-      font-size: 2.2rem;
-      margin-bottom: 30px;
-      text-align: center;
-      color: #2c3e50;
-      border-bottom: 2px solid #4ca1af;
-      display: inline-block;
-      width: 100%;
-      padding-bottom: 10px;
-    }
-
-    section h3 {
-      margin-top: 25px;
-      margin-bottom: 10px;
-      font-size: 1.4rem;
-      color: #34495e;
-    }
-
-    section p {
-      margin-bottom: 15px;
-      line-height: 1.6;
-      font-size: 1rem;
-    }
-
-    .highlight-box {
-      background: #eef2f3;
-      padding: 20px;
-      border-left: 5px solid #4ca1af;
-      margin: 20px 0;
-    }
-
-    ul {
-      margin-left: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    ul li {
-      margin-bottom: 8px;
-    }
+    .contribution-box { background: #f1f2f6; border-radius: 8px; padding: 25px; margin-top: 40px; border: 1px solid #dfe6e9; }
+    
+    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } header h1 { font-size: 2rem; } }
   </style>
 </head>
-
 <body>
+
   <nav>
-    <a href="#home">Home</a>
-    <a href="#project">Blade Design Project</a>
-    <a id="resume-link" href="Will Chen Resume.pdf" download>Resume</a>
+    <div style="font-weight: bold; color: white;">WILL CHEN</div>
+    <div>
+      <a href="#overview">Project</a>
+      <a href="#process">Design</a>
+      <a href="#testing">Testing</a>
+      <a href="#contribution">My Role</a>
+    </div>
   </nav>
 
-  <header id="home">
-    <h1>Hello, I'm Will Chen</h1>
-    <p>Mechanical Engineering | Wind Turbine Blade Optimization & Aerodynamics</p>
-    <div class="scroll-down" onclick="document.getElementById('project').scrollIntoView({ behavior: 'smooth' });">
-      ↓ View Project Details
-    </div>
+  <header>
+    <h1>Mechanical Engineering Portfolio</h1>
+    <p>MAE 4272: Aerodynamic Optimization of a 3D-Printed Wind Turbine Blade</p>
   </header>
 
-  <section id="project">
-    <h2>Optimized Wind Turbine Blade Design</h2>
-
-    <h3>Executive Summary</h3>
-    <p>
-      This project details the design, fabrication, and testing of an optimized 6-inch wind turbine blade designed for maximum power efficiency. Using <strong>Blade Element Momentum (BEM) theory</strong> and a <strong>NACA 4412 airfoil</strong> profile, our team developed a blade geometry optimized for a specific Weibull-distributed wind environment. The final design was successfully 3D-printed and tested in a wind tunnel to validate its performance against theoretical models.
-    </p>
-    
-    <div class="highlight-box">
-      <strong>Key Result:</strong> The design achieved a maximum expected power output (P<sub>exp</sub>) of <strong>0.087 W</strong> at an optimal rotation rate (&Omega;<sub>opt</sub>) of <strong>850 RPM</strong>.
+  <section id="overview">
+    <h2>Project Overview</h2>
+    <div class="grid">
+      <div>
+        <p>
+          I was challenged to design a high-efficiency, 6-inch radius wind turbine blade optimized for a real-world wind environment. The primary objective was to maximize the <strong>Expected Power Output</strong> based on a specific Weibull probability distribution of wind speeds. 
+        </p>
+        <p>
+          This project required balancing <strong>aerodynamic performance</strong> with <strong>manufacturing constraints</strong>, such as 3D-printability and structural stability up to 3000 RPM.
+        </p>
+      </div>
+      <div class="figure-container">
+        
+        <div class="caption">Figure 1: Final 3D CAD model featuring optimized chord and twist distribution.</div>
+      </div>
     </div>
-
-    <h3>Objectives & Constraints</h3>
-    <p>
-      The primary objective was to develop a 6-inch radius blade specifically designed to maximize expected power output within a Weibull-distributed wind environment. This required selecting an appropriate airfoil and designing the optimal twist and chord distributions to maintain efficient aerodynamic loading across the span.
-    </p>
-    <p>
-      The design was governed by several rigorous constraints:
-    </p>
-    <ul>
-      <li><strong>Geometric:</strong> Radius &le; 6 in, Thickness < 2 in, and Chord < 1.6 in.</li>
-      <li><strong>Manufacturing:</strong> 3D printable, no thin trailing edges, and a seamless hub attachment.</li>
-      <li><strong>Operational:</strong> Stable operation up to 3000 RPM with a Factor of Safety (FOS) of 2 under aerodynamic loads.</li>
-    </ul>
-
-    <h3>Design Process & Methodology</h3>
-    <p>
-      We followed a 6-step iterative design process centered on BEM theory:
-    </p>
-    <ol>
-      <li><strong>Parameter Definition:</strong> Established the baseline radius and environmental constants.</li>
-      <li><strong>Airfoil Selection:</strong> Chose the NACA 4412 for its high C<sub>L</sub>/C<sub>D</sub> ratio.</li>
-      <li><strong>Theoretical Modeling:</strong> Determined maximum theoretical power production.</li>
-      <li><strong>Geometric Iteration:</strong> Refined chord, pitch, twist, and thickness across the blade span.</li>
-      <li><strong>Operational Analysis:</strong> Simulated increased rotation rates until physical constraints were reached.</li>
-      <li><strong>Validation:</strong> Finalizing the design for manufacturing.</li>
-    </ol>
-
-    
-
-    <h3>Experimental Testing & Validation</h3>
-    <p>
-      Testing was conducted in two main phases. First, we established a linear relationship between the wind tunnel fan frequency (Hz) and actual wind velocity (m/s). Second, we generated <strong>Power Curves</strong> by recording turbine RPM and power output across multiple wind speeds.
-    </p>
-    <p>
-      By weighting these power curves against the <strong>Weibull Probability Distribution</strong>, we were able to identify the "expected power" across all probable wind speeds in the target environment.
-    </p>
-
-    <h3>Conclusion</h3>
-    <p>
-      The project successfully validated that BEM theory can accurately guide the design of small-scale turbine blades. The manufactured design met all structural and geometric requirements while providing a clear path toward optimal efficiency. Future iterations could improve model accuracy by collecting more data in the 3-7 m/s wind range and refining the hub attachment to reduce mechanical friction.
-    </p>
   </section>
 
-  <script>
-    document.getElementById('resume-link').addEventListener('click', function (event) {
-      event.preventDefault();
-      const pdfUrl = this.href;
-      window.open(pdfUrl, '_blank');
-      const anchor = document.createElement('a');
-      anchor.href = pdfUrl;
-      anchor.download = 'Will Chen Resume.pdf';
-      anchor.click();
-    });
-  </script>
-</body>
+  <section id="process">
+    <h2>Design Process & Optimization</h2>
+    <p>
+      The team utilized <strong>Blade Element Momentum (BEM) Theory</strong> to model the interaction between the blade geometry and the incoming airflow. We selected the <strong>NACA 4412 airfoil</strong> profile for its high lift-to-drag ratio at low Reynolds numbers. 
+    </p>
+    <div class="grid">
+        <div class="figure-container">
+            
+            <div class="caption">Figure 2: Theoretical distribution of twist and chord length across the span.</div>
+          </div>
+      <div>
+        <p>
+          Key design decisions were made through an iterative script that calculated local induction factors to solve for the optimal <strong>twist angle</strong> and <strong>chord length</strong> at 10 discrete stations along the blade. We prioritized a robust Factor of Safety (FOS=2) to ensure the blade could withstand peak aerodynamic loads during high-speed operation.
+        </p>
+      </div>
+    </div>
+  </section>
 
+  <section id="testing">
+    <h2>Testing & Performance Validation</h2>
+    <p>
+      The physical blades were fabricated using 3D Systems Accura 25 resin and tested in a subsonic wind tunnel. We established a linear calibration between fan frequency and wind velocity before generating <strong>experimental power curves</strong>. By sweeping through torque brake voltages at multiple wind speeds, we identified the peak power points for our design.
+    </p>
+    <div class="grid">
+      <div>
+        <p>
+          Data analysis involved integrating the experimental power curves with the environmental Weibull distribution. This allowed us to determine that our blade achieves an <strong>expected power of 0.087 W</strong> with an <strong>optimal operating speed of 850 RPM</strong>.
+        </p>
+      </div>
+      <div class="figure-container">
+        
+        <div class="caption">Figure 3: Experimental Power vs. RPM curves used to find the optimal operating point.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contribution" class="contribution-box">
+    <h2>My Contribution</h2>
+    <p>
+      As a core member of this four-person design team, I specifically focused on:
+    </p>
+    <ul>
+      <li><strong>[BEM Modeling]:</strong> Developed the iterative solver to calculate local induction factors and geometric parameters.</li>
+      <li><strong>[CAD Development]:</strong> Translated theoretical coordinates into a 3D-printable SolidWorks model with a seamless hub attachment.</li>
+      <li><strong>[Experimental Lead]:</strong> Conducted wind tunnel data collection, managing the interface between the torque brake system and the data acquisition software.</li>
+    </ul>
+    <p><em>(Edit these bullets to reflect exactly what you did for the team!)</em></p>
+  </section>
+
+  <footer style="text-align: center; padding: 40px; color: #b2bec3; font-size: 0.8rem;">
+    &copy; 2024 Will Chen | Cornell University Mechanical Engineering
+  </footer>
+
+</body>
 </html>
