@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Will Chen | Professional Engineering Portfolio</title>
+  <title>Will Chen | Wind Turbine Design Portfolio</title>
   <style>
     /* Professional Styling */
     * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -21,12 +21,13 @@
     h2 { font-size: 1.8rem; color: #0984e3; margin-bottom: 20px; border-left: 5px solid #00cec9; padding-left: 15px; }
     h3 { font-size: 1.3rem; margin: 25px 0 10px; color: #2d3436; }
     
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; margin-bottom: 40px; }
     .figure-container { background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; }
-    .figure-container img { max-width: 100%; border-radius: 4px; }
+    .figure-container img { max-width: 100%; height: auto; border-radius: 4px; border: 1px solid #eee; }
     .caption { font-size: 0.85rem; color: #636e72; margin-top: 10px; font-style: italic; }
 
     .contribution-box { background: #f1f2f6; border-radius: 8px; padding: 25px; margin-top: 40px; border: 1px solid #dfe6e9; }
+    ul { padding-left: 20px; }
     
     @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } header h1 { font-size: 2rem; } }
   </style>
@@ -36,16 +37,16 @@
   <nav>
     <div style="font-weight: bold; color: white;">WILL CHEN</div>
     <div>
-      <a href="#overview">Project</a>
-      <a href="#process">Design</a>
-      <a href="#testing">Testing</a>
+      <a href="#overview">Project Overview</a>
+      <a href="#modeling">Modeling</a>
+      <a href="#testing">Experimental Validation</a>
       <a href="#contribution">My Role</a>
     </div>
   </nav>
 
   <header>
     <h1>Mechanical Engineering Portfolio</h1>
-    <p>MAE 4272: Aerodynamic Optimization of a 3D-Printed Wind Turbine Blade</p>
+    <p>MAE 4272: Optimization of a 3D-Printed Wind Turbine Blade</p>
   </header>
 
   <section id="overview">
@@ -53,51 +54,51 @@
     <div class="grid">
       <div>
         <p>
-          I was challenged to design a high-efficiency, 6-inch radius wind turbine blade optimized for a real-world wind environment. The primary objective was to maximize the <strong>Expected Power Output</strong> based on a specific Weibull probability distribution of wind speeds. 
+          I collaborated with a team to design and optimize a 6-inch radius wind turbine blade. The goal was to maximize <strong>expected power output</strong> within a Weibull-distributed wind environment. 
         </p>
         <p>
-          This project required balancing <strong>aerodynamic performance</strong> with <strong>manufacturing constraints</strong>, such as 3D-printability and structural stability up to 3000 RPM.
+          This required navigating complex constraints, including 3D-printability, a maximum chord of 1.6 inches, and ensuring structural integrity up to 3000 RPM with a factor of safety of 2.
         </p>
       </div>
       <div class="figure-container">
-        
-        <div class="caption">Figure 1: Final 3D CAD model featuring optimized chord and twist distribution.</div>
+        <img src="CAD_Model.png" alt="Blade CAD Model">
+        <div class="caption">Figure 1: Final CAD geometry optimized for aerodynamic loading and manufacturability.</div>
       </div>
     </div>
   </section>
 
-  <section id="process">
-    <h2>Design Process & Optimization</h2>
-    <p>
-      The team utilized <strong>Blade Element Momentum (BEM) Theory</strong> to model the interaction between the blade geometry and the incoming airflow. We selected the <strong>NACA 4412 airfoil</strong> profile for its high lift-to-drag ratio at low Reynolds numbers. 
-    </p>
+  <section id="modeling">
+    <h2>Aerodynamic Modeling</h2>
     <div class="grid">
-        <div class="figure-container">
-            
-            <div class="caption">Figure 2: Theoretical distribution of twist and chord length across the span.</div>
-          </div>
+      <div class="figure-container">
+        <img src="Power_Rotation.png" alt="Theoretical Power Curve">
+        <div class="caption">Figure 2: Theoretical Power vs. Rotation Rate derived from BEM modeling.</div>
+      </div>
       <div>
         <p>
-          Key design decisions were made through an iterative script that calculated local induction factors to solve for the optimal <strong>twist angle</strong> and <strong>chord length</strong> at 10 discrete stations along the blade. We prioritized a robust Factor of Safety (FOS=2) to ensure the blade could withstand peak aerodynamic loads during high-speed operation.
+          We utilized <strong>Blade Element Momentum (BEM) Theory</strong> to iteratively solve for the optimal twist and chord distribution. By modeling the NACA 4412 airfoil across ten discrete radial stations, we predicted the turbine's performance limits.
+        </p>
+        <p>
+          This modeling phase allowed us to calculate the maximum theoretical power before proceeding to fabrication, providing a baseline for our experimental trials.
         </p>
       </div>
     </div>
   </section>
 
   <section id="testing">
-    <h2>Testing & Performance Validation</h2>
-    <p>
-      The physical blades were fabricated using 3D Systems Accura 25 resin and tested in a subsonic wind tunnel. We established a linear calibration between fan frequency and wind velocity before generating <strong>experimental power curves</strong>. By sweeping through torque brake voltages at multiple wind speeds, we identified the peak power points for our design.
-    </p>
+    <h2>Testing & Experimental Summary</h2>
     <div class="grid">
       <div>
         <p>
-          Data analysis involved integrating the experimental power curves with the environmental Weibull distribution. This allowed us to determine that our blade achieves an <strong>expected power of 0.087 W</strong> with an <strong>optimal operating speed of 850 RPM</strong>.
+          The blade was tested in a subsonic wind tunnel using a torque brake system. We generated experimental power curves across a range of wind velocities from 4.5 m/s to 10.6 m/s.
+        </p>
+        <p>
+          By applying the Weibull probability distribution to our experimental data, we calculated an <strong>expected power of 0.087 W</strong> at an <strong>optimal rotation rate of 850 RPM</strong>.
         </p>
       </div>
       <div class="figure-container">
-        
-        <div class="caption">Figure 3: Experimental Power vs. RPM curves used to find the optimal operating point.</div>
+        <img src="Experimental.png" alt="Experimental Power Curve">
+        <div class="caption">Figure 3: Experimental power curves showing the peak operating points across varying wind speeds.</div>
       </div>
     </div>
   </section>
@@ -105,18 +106,17 @@
   <section id="contribution" class="contribution-box">
     <h2>My Contribution</h2>
     <p>
-      As a core member of this four-person design team, I specifically focused on:
+      In this group project, I was responsible for:
     </p>
     <ul>
-      <li><strong>[BEM Modeling]:</strong> Developed the iterative solver to calculate local induction factors and geometric parameters.</li>
-      <li><strong>[CAD Development]:</strong> Translated theoretical coordinates into a 3D-printable SolidWorks model with a seamless hub attachment.</li>
-      <li><strong>[Experimental Lead]:</strong> Conducted wind tunnel data collection, managing the interface between the torque brake system and the data acquisition software.</li>
+      <li><strong>Data Analysis:</strong> Developed the script to integrate experimental power curves with the Weibull distribution to determine the final optimal operating point.</li>
+      <li><strong>Experimental Setup:</strong> Managed the wind tunnel fan frequency calibration and torque brake voltage adjustments during data collection.</li>
+      <li><strong>Technical Reporting:</strong> Drafted the structural analysis sections and performance comparison against theoretical BEM predictions.</li>
     </ul>
-    <p><em>(Edit these bullets to reflect exactly what you did for the team!)</em></p>
   </section>
 
   <footer style="text-align: center; padding: 40px; color: #b2bec3; font-size: 0.8rem;">
-    &copy; 2024 Will Chen | Cornell University Mechanical Engineering
+    &copy; 2025 Will Chen | Cornell University Mechanical Engineering
   </footer>
 
 </body>
