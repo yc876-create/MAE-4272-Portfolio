@@ -4,9 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Will Chen | MAE 4300 Portfolio</title>
+  <title>Will Chen | Wind Turbine Design Portfolio</title>
 
   <style>
+    /* CSS Styles from your template */
     * {
       margin: 0;
       padding: 0;
@@ -23,7 +24,7 @@
     nav {
       position: sticky;
       top: 0;
-      background: linear-gradient(135deg, #5fbf77, #2c7a4d);
+      background: linear-gradient(135deg, #2c3e50, #4ca1af);
       padding: 1rem 2rem;
       display: flex;
       justify-content: center;
@@ -66,7 +67,7 @@
 
     header {
       height: 60vh;
-      background: linear-gradient(135deg, #5fbf77, #2c7a4d);
+      background: linear-gradient(135deg, #2c3e50, #4ca1af);
       color: white;
       display: flex;
       flex-direction: column;
@@ -86,19 +87,12 @@
     }
 
     @keyframes typing {
-      from {
-        width: 0;
-      }
-
-      to {
-        width: 100%;
-      }
+      from { width: 0; }
+      to { width: 100%; }
     }
 
     @keyframes blink {
-      50% {
-        border-color: transparent;
-      }
+      50% { border-color: transparent; }
     }
 
     header p {
@@ -118,32 +112,14 @@
       transition: transform 0.3s;
     }
 
-    .scroll-down:hover {
-      transform: scale(1.2);
-    }
-
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes bounce {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(8px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
     }
 
     section {
@@ -156,38 +132,112 @@
       font-size: 2.2rem;
       margin-bottom: 30px;
       text-align: center;
+      color: #2c3e50;
+      border-bottom: 2px solid #4ca1af;
+      display: inline-block;
+      width: 100%;
+      padding-bottom: 10px;
     }
 
     section h3 {
       margin-top: 25px;
       margin-bottom: 10px;
       font-size: 1.4rem;
+      color: #34495e;
     }
 
     section p {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       line-height: 1.6;
       font-size: 1rem;
     }
 
+    .highlight-box {
+      background: #eef2f3;
+      padding: 20px;
+      border-left: 5px solid #4ca1af;
+      margin: 20px 0;
+    }
+
     ul {
       margin-left: 1.2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     ul li {
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
   </style>
 </head>
 
 <body>
-  <!-- Sticky Nav -->
   <nav>
     <a href="#home">Home</a>
-    <a href="#about">MAE 4300 Project</a>
-    <a id="resume-link" href="Will Chen Summer 2025 Resume.pdf" download>Resume</a>
+    <a href="#project">Blade Design Project</a>
+    <a id="resume-link" href="Will Chen Resume.pdf" download>Resume</a>
   </nav>
+
+  <header id="home">
+    <h1>Hello, I'm Will Chen</h1>
+    <p>Mechanical Engineering | Wind Turbine Blade Optimization & Aerodynamics</p>
+    <div class="scroll-down" onclick="document.getElementById('project').scrollIntoView({ behavior: 'smooth' });">
+      ↓ View Project Details
+    </div>
+  </header>
+
+  <section id="project">
+    <h2>Optimized Wind Turbine Blade Design</h2>
+
+    <h3>Executive Summary</h3>
+    <p>
+      This project details the design, fabrication, and testing of an optimized 6-inch wind turbine blade designed for maximum power efficiency. Using <strong>Blade Element Momentum (BEM) theory</strong> and a <strong>NACA 4412 airfoil</strong> profile, our team developed a blade geometry optimized for a specific Weibull-distributed wind environment. The final design was successfully 3D-printed and tested in a wind tunnel to validate its performance against theoretical models.
+    </p>
+    
+    <div class="highlight-box">
+      <strong>Key Result:</strong> The design achieved a maximum expected power output (P<sub>exp</sub>) of <strong>0.087 W</strong> at an optimal rotation rate (&Omega;<sub>opt</sub>) of <strong>850 RPM</strong>.
+    </div>
+
+    <h3>Objectives & Constraints</h3>
+    <p>
+      The primary objective was to develop a 6-inch radius blade specifically designed to maximize expected power output within a Weibull-distributed wind environment. This required selecting an appropriate airfoil and designing the optimal twist and chord distributions to maintain efficient aerodynamic loading across the span.
+    </p>
+    <p>
+      The design was governed by several rigorous constraints:
+    </p>
+    <ul>
+      <li><strong>Geometric:</strong> Radius &le; 6 in, Thickness < 2 in, and Chord < 1.6 in.</li>
+      <li><strong>Manufacturing:</strong> 3D printable, no thin trailing edges, and a seamless hub attachment.</li>
+      <li><strong>Operational:</strong> Stable operation up to 3000 RPM with a Factor of Safety (FOS) of 2 under aerodynamic loads.</li>
+    </ul>
+
+    <h3>Design Process & Methodology</h3>
+    <p>
+      We followed a 6-step iterative design process centered on BEM theory:
+    </p>
+    <ol>
+      <li><strong>Parameter Definition:</strong> Established the baseline radius and environmental constants.</li>
+      <li><strong>Airfoil Selection:</strong> Chose the NACA 4412 for its high C<sub>L</sub>/C<sub>D</sub> ratio.</li>
+      <li><strong>Theoretical Modeling:</strong> Determined maximum theoretical power production.</li>
+      <li><strong>Geometric Iteration:</strong> Refined chord, pitch, twist, and thickness across the blade span.</li>
+      <li><strong>Operational Analysis:</strong> Simulated increased rotation rates until physical constraints were reached.</li>
+      <li><strong>Validation:</strong> Finalizing the design for manufacturing.</li>
+    </ol>
+
+    
+
+    <h3>Experimental Testing & Validation</h3>
+    <p>
+      Testing was conducted in two main phases. First, we established a linear relationship between the wind tunnel fan frequency (Hz) and actual wind velocity (m/s). Second, we generated <strong>Power Curves</strong> by recording turbine RPM and power output across multiple wind speeds.
+    </p>
+    <p>
+      By weighting these power curves against the <strong>Weibull Probability Distribution</strong>, we were able to identify the "expected power" across all probable wind speeds in the target environment.
+    </p>
+
+    <h3>Conclusion</h3>
+    <p>
+      The project successfully validated that BEM theory can accurately guide the design of small-scale turbine blades. The manufactured design met all structural and geometric requirements while providing a clear path toward optimal efficiency. Future iterations could improve model accuracy by collecting more data in the 3-7 m/s wind range and refining the hub attachment to reduce mechanical friction.
+    </p>
+  </section>
 
   <script>
     document.getElementById('resume-link').addEventListener('click', function (event) {
@@ -196,75 +246,10 @@
       window.open(pdfUrl, '_blank');
       const anchor = document.createElement('a');
       anchor.href = pdfUrl;
-      anchor.download = 'Will Chen Summer 2025 Resume.pdf';
+      anchor.download = 'Will Chen Resume.pdf';
       anchor.click();
     });
   </script>
-
-  <header id="home">
-    <h1>Hello, I'm Will Chen</h1>
-    <p>This is my MAE 4300 GitHub Portfolio – Week 6–9 Project Writeup</p>
-    <div class="scroll-down" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });">
-      ↓ Scroll Down
-    </div>
-  </header>
-
-  <section id="about">
-    <h2>Boeing 737 MAX Ethical Analysis Project</h2>
-
-    <p>
-      This portfolio summarizes my work from Weeks 6–9 in MAE 4300, where I analyzed the Boeing 737 MAX crashes
-      through the lens of engineering ethics, regulation, and sociotechnical systems. Below is a brief overview of how
-      my understanding developed each week.
-    </p>
-
-    <h3>Week 6 – Identifying Ethical Issues</h3>
-    <p>
-      I began by listing key ethical questions raised by the 737 MAX case, such as whether Boeing should have
-      prioritized safety over schedule, been more transparent about MCAS, required redundant sensors, protected
-      whistleblowers, and taken responsibility for victim compensation and reforms. This step framed the case as a
-      series of concrete ethical dilemmas rather than just a technical failure.
-    </p>
-
-    <h3>Week 7 – Facts, Assumptions, and Definitions</h3>
-    <p>
-      I organized the case into material facts (e.g., MCAS relying on a single AOA sensor, limited pilot information),
-      individual actions (decisions by engineers, managers, and FAA officials), and organizational factors (schedule
-      pressure, weak safety culture, fragmented communication).
-      I then filled in missing information with reasonable assumptions and clarified key terms like “safety,”
-      “transparency,” and “accountability” from the perspectives of Boeing, regulators, and victims’ families.
-    </p>
-
-    <h3>Week 8 – Ethical Analysis and Resolutions</h3>
-    <p>
-      Using ASME/ASCE/ASEE codes, I mapped relevant principles to each ethical issue: protecting public safety,
-      honesty in communication, avoiding conflicts of interest, and upholding professional responsibility. I argued
-      that engineers should not have approved MCAS with a single point of failure, management should have invested in
-      proper pilot training and disclosure, and Boeing should have supported a culture where safety concerns were taken
-      seriously.
-    </p>
-
-    <h3>Week 9 – Constraints and Prevention Strategies</h3>
-    <p>
-      Finally, I examined real-world constraints that prevented ideal decisions, such as job security concerns,
-      regulatory capture, market competition, and entrenched corporate culture. I then proposed prevention strategies at
-      three levels:
-    </p>
-    <ul>
-      <li><strong>Individual:</strong> stronger ethics training, documentation habits, and professional support networks.</li>
-      <li><strong>Organizational:</strong> independent safety boards, clear authority for engineers to halt unsafe designs, and
-        protection for whistleblowers.</li>
-      <li><strong>Systemic:</strong> more independent regulatory oversight, stricter certification standards, and better alignment
-        of incentives with long-term public safety.</li>
-    </ul>
-
-    <p>
-      Overall, this project taught me that engineering failures arise not only from flawed designs but from
-      sociotechnical systems where ethics, regulation, incentives, and communication all interact. As a future engineer,
-      I hope to carry forward the lesson that public safety and transparency must take precedence over schedule and
-      profit.
-    </p>
-  </section>
 </body>
 
 </html>
